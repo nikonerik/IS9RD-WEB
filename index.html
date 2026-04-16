@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I Survived 9 Robin Drive</title>
+    <style>
+        body { 
+            background-color: #2b2b2b; 
+            color: #ffffff; 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            margin-top: 40px; 
+        }
+        #game-container { 
+            width: 768px; 
+            height: 512px; 
+            margin: 0 auto; 
+            box-shadow: 0px 0px 20px #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>I Survived 9 Robin Drive</h1>
+    <p>Controls: Arrow Keys to move. 'X' or 'Space' to jump.</p>
+    
+    <div id="game-container">
+        <div id="game"></div>
+    </div>
+
+    <script>
+        EJS_player = '#game';
+        EJS_core = 'c64'; // Tells the engine to boot the VICE C64 core
+        EJS_gameUrl = 'main.prg'; // The exact name of your game file!
+        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/'; // Pulls the emulator from the cloud
+    </script>
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+</body>
+</html>
