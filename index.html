@@ -26,12 +26,20 @@
         <div id="game"></div>
     </div>
 
-    <script>
+   <script>
         EJS_player = '#game';
-        EJS_core = 'c64'; // Tells the engine to boot the VICE C64 core
-        EJS_gameUrl = 'main.prg'; // The exact name of your game file!
-        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/'; // Pulls the emulator from the cloud
+        EJS_core = 'c64'; 
+        EJS_gameUrl = 'main.prg'; 
+        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/'; 
+
+        // --- NEW: Custom Mobile Gamepad ---
+        EJS_VirtualGamepadSettings =[
+            // 1. The D-Pad on the left
+            { type: "dpad", location: "left", left: "50%", right: "50%", joystickInput: false, inputValues: [4, 5, 6, 7] },
+            
+            // 2. The single Action Button (Fire) on the right
+            { type: "button", text: "ACTION", id: "fire", location: "right", left: 40, top: 60, fontSize: 16, bold: true, input_value: 0 }
+        ];
     </script>
-    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
 </body>
 </html>
