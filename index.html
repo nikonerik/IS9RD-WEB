@@ -5,6 +5,11 @@
     
     <!-- NEW: Forces phones and tablets to scale correctly and show touch controls -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Tells mobile browsers to hide the address bar if saved to Home Screen -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
 <style>
         body { 
@@ -77,6 +82,15 @@
             // 2. The single Action Button (Fire) on the right
             { type: "button", text: "ACTION", id: "fire", location: "right", left: 40, top: 60, fontSize: 16, bold: true, input_value: 0 }
         ];
+
+        // --- NEW: Auto-Fullscreen on first tap ---
+        document.body.addEventListener('click', function() {
+            if (!document.fullscreenElement && /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                document.documentElement.requestFullscreen().catch((e) => {
+                    console.log("Fullscreen blocked by browser");
+                });
+            }
+        }, { once: true }); // The 'once: true' means it only fires on the very first tap
     </script>
     
     <!-- THIS IS THE MAGIC LINE THAT WAS MISSING! -->
