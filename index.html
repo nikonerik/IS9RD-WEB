@@ -32,19 +32,25 @@
             box-shadow: 0px 0px 20px #000;
         }
 
-        /* --- THE MAGIC LANDSCAPE FIX --- */
+  /* --- THE MAGIC LANDSCAPE FIX --- */
         @media (orientation: landscape) and (max-height: 600px) {
             h1, p { 
                 display: none; 
             } 
             body {
-                padding: 0; /* Remove padding to maximize screen real estate */
+                padding: 0;
+                margin: 0;
+                overflow: hidden; /* Absolutely forbid the browser from scrolling */
             }
             #game-container {
-                width: 100vw;  /* Take up the ENTIRE width of the phone */
-                height: 100vh; /* Take up the ENTIRE height of the phone */
-                max-width: none; /* Remove the 768px desktop limit */
-                aspect-ratio: auto; /* Remove the 4:3 lock so it can stretch! */
+                position: fixed; /* Lock the game to the top-left corner */
+                top: 0;
+                left: 0;
+                width: 100vw; 
+                height: 100dvh; /* 'dvh' accounts for the mobile URL bar! */
+                max-width: none; 
+                aspect-ratio: auto; 
+                box-shadow: none; /* Turn off the shadow for full-screen mode */
             }
         }
     </style>
