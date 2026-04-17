@@ -35,11 +35,16 @@
         /* --- THE MAGIC LANDSCAPE FIX --- */
         @media (orientation: landscape) and (max-height: 600px) {
             h1, p { 
-                display: none; /* Hide the text to make room for the game */
+                display: none; 
             } 
+            body {
+                padding: 0; /* Remove padding to maximize screen real estate */
+            }
             #game-container {
-                width: auto; /* Stop stretching across the width */
-                height: 95vh; /* Take up 95% of the screen HEIGHT instead */
+                width: 100vw;  /* Take up the ENTIRE width of the phone */
+                height: 100vh; /* Take up the ENTIRE height of the phone */
+                max-width: none; /* Remove the 768px desktop limit */
+                aspect-ratio: auto; /* Remove the 4:3 lock so it can stretch! */
             }
         }
     </style>
